@@ -1030,14 +1030,93 @@ for i in range(20):
         print(f"total = {total} i = {i}")
 ```
 
-```{r}
-a <- c(1,2,3) * 2 ; a
-```
-
-
 ## Podstawowe struktury danych, funkcje i pliki
 
 ### 3.1. Struktury i sekwencje danych 
+***
+
+#### Tuples - krotki
+***
+
+**Tuples** - jest sekwencja **niezmienna**. Tworzymy ją nawiasami. W okreslonych sytuacjach można pomnąć nawiasy 
+
+```{python}
+tup = (2, 5, 8)
+tup = 5, 5, 6
+tup
+```
+
+Dowolną sekwencję można przekonwertować na obiekt `tuple` lub iterator.
+
+```{python}
+a = range(4)
+type(tuple(a))
+```
+
+```{python}
+b = tuple('string') ; b
+```
+
+Indeksowanie odbywa się za pomocą nawiasó kwadratowy `[]`
+
+```{python}
+print(b[0] , b[3])
+```
+
+**nest tuple** - bardziej skomplikowane krotki - trzeba stosować nawiasy do wydzielenie elemntów zagnieżdzonych.
+
+```{python}
+nest_tup = (3,6,9), (2,4)
+nest_tup
+```
+
+Nie można modyfikować struktury obiektów `tuple`. Natomiast można zmodyfikować obiekty zagnieżdzone, które są modyfikowalne np. `list`.
+
+```{python}
+nest = ('foo', [1,2], True)
+print(f"wydruk obiektu nest = {nest}, \n sprawdzamy jego typ = {type(nest)}")
+```
+
+Spróbujemy zmienić sekwencje `True` na wartość `False` w obiekcie `tuple`  
+
+```{python}
+#| eval: false
+nest[2] = False
+```
+
+Nie zadziałoało ponieważ nie mozna modyfikować obiektu `tuple`. Można za to zmodyfikować wewnętrzny obiekt np. `list`.
+
+```{python}
+nest[1].append(3)
+nest
+```
+
+Obiekty `tuple` można łączyć w celu stworzenia bardziej złożonych obiektów:
+
+```{python}
+new_nest = nest + ("test", [2,4,6], False)
+new_nest
+```
+
+Mnożenie `tuple` przez liczbe całkowitą - jest powielaniem elmentów `tuple`
+
+```{python}
+nest * 3
+```
+
+:::{.callout-tip appearance="simple"}
+Zauważ, że nowy obiekt powstał z odniesień do dwóch istniejacych obiektów.
+:::
+
+
+
+
+
+
+
+
+
+
 
 
 
