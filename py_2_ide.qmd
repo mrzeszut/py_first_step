@@ -1,0 +1,110 @@
+---
+title: "IDE - Integrated Development Environment"
+author: " Mateusz Rzeszutek"
+author-meta: "A"
+date: today
+format: 
+  html:
+    code-fold: show
+    code-block-bg: true
+    code-block-border-left: blue
+    code-tools: true
+    number-sections: true
+    number-depth: 6
+    toc: true
+    toc-depth: 3
+    toc-location: right
+    toc-title: Spis Treści
+    embed-resources: true
+    smooth-scroll: true
+    self-contained: true
+    anchor-sections: true
+    theme: 
+        light: flatly
+        dark: solar
+    fontsize: 1.0em
+    linestretch: 1.5
+execute: 
+  echo: true
+  error: false
+  warning: false
+  output: true
+---
+
+<style type="text/css"> body {text-align: justify}  </style>
+
+***
+
+
+## Dystrybucja python - Anacodna
+
+Zamierza rozpocząć pracę z **nauką o danych** (Data Science) w python. Najlepszym wyborme na start jest zainstalowanie [anacondy](https://www.anaconda.com/). Jest to stabilna dystrybucja pyhona typu open source. Niestety waży dość dużo, ale znajdziesz tam wszystkie niezbędne pakiety do rozpoczęcia pracy z nauką o danych.
+
+
+## IDE (Integrated Development Environment)
+
+Istnieje wiele IDE dla pythona. Kilka popularnych IDE opisano [tutaj](https://www.simplilearn.com/tutorials/python-tutorial/python-ide). W przypadku pythona dla nauki o danych najlpopularnijszy IDE jest [jupyter]() oraz [spyder](). 
+
+Moim faworytem jest jednak Visual Studio Code [VS](https://code.visualstudio.com/) przy współpracy interaktywnej jupytera oraz technologi [quarto]() zapewnia genialne IDE dla procesu nauki o danych. Przykładowe środowisko robocze przedstawia poniższa grafika. 
+
+![Visual Studio Code + Quarto fo python](fig_to_qmd/python-vscode.png)
+
+Po instalacji **anacody** nalezy zainstalować **VS code** oraz **Quarto**.Następnie zalecam skorzytsanie z gotowego samouczka w celu skonfigurowania środowiska pracy. Postaraj się przerobić cały samouczek VS code. Pozwoli ci to efektywnie pracować z wieloma jezykami programowania w jednym środowisku graficznym.
+
+[VS code for Python](https://code.visualstudio.com/docs/python/python-tutorial). 
+
+
+## Rozszerzenia VS code
+
+Zalecam instalacje niżej wymienionych rozszerzeń **VS code**.
+
+[python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+
+[Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode)
+
+[Python Extension Pack](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-extension-pack)
+
+[jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
+
+[Quarto](https://marketplace.visualstudio.com/items?itemName=quarto.quarto)
+
+[Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
+
+[Remote-SHH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
+
+[Polyglot Notebook](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode)
+
+***
+**Ciekawe rozszerzenie dla początkującyh:**
+
+[Python Preview](https://marketplace.visualstudio.com/items?itemName=dongli.python-preview)
+
+***
+**Rozszerzenie dla opornych:**
+
+[polish VS](https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-pl)
+
+***
+
+
+## Git i GitHub
+
+Obsługa GIT i GitHub w VS Code jest naprawdę przyjemna. Zachecam do zapoznania się z samouczkiem. 
+
+[Github in VS Code](https://learn.microsoft.com/en-us/training/modules/introduction-to-github-visual-studio-code/)
+
+
+## VS Code dla R
+
+Inną alternatywą jest korzystanie py i R w jednocześnie w VS Code. Jeśli zdecydujesz się na takie rozwiązanie dobrze dodaj rozszerzenia, które pozwolą ci pracować efektywnie z R. Wrzytskie informacje znajdziesz [tutaj](https://github.com/REditorSupport/vscode-R), nie zawsze jest to proste.
+
+[Rekomendowane rozszerzenia VS Code dla R](https://renkun.me/2022/03/06/my-recommendations-of-vs-code-extensions-for-r/)
+
+
+
+## Alternatywa dla fanów R
+
+Jestem fanem R oraz [IDE Rstudio](https://posit.co/products/open-source/rstudio/) od [Posit](https://posit.co/). Wiele osób korzysta z R i Rstudio ponieważ zapewnia potężne narzędzia do przetwarzania, analizy i wizualizacji statystycznych danych. W celu korzystania z IDE RStudio na potrzeby programowania w python wystarczy zainstalować pakiet [retuculate](https://rstudio.github.io/reticulate/), który umożliwia pisanie kodu. R posiada świetne i proste w nauce narzędzie do tworzenia aplikajci web [shiny](https://shiny.rstudio.com/tutorial/). Istnieje również wersja dla pythona [pyshiny](https://pyshine.com/)
+
+
+

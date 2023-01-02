@@ -1,0 +1,130 @@
+---
+title: "Podstawowe struktury danych, funkcje i pliki"
+author: " Mateusz Rzeszutek"
+author-meta: "A"
+date: today
+format: 
+  html:
+    code-fold: show
+    code-block-bg: true 
+    code-block-border-left: blue
+    code-tools: true
+    number-sections: true
+    number-depth: 6
+    toc: true
+    toc-depth: 3
+    toc-location: right
+    toc-title: Spis Treści
+    embed-resources: true
+    smooth-scroll: true
+    self-contained: true
+    anchor-sections: true
+    theme: 
+        light: flatly
+        dark: solar
+    fontsize: 1.0em
+    linestretch: 1.5
+execute: 
+  echo: true
+  error: false
+  warning: false
+  output: true
+---
+
+<style type="text/css"> body {text-align: justify}  </style>
+
+
+## Struktury i sekwencje danych 
+
+
+### Tuples - krotki
+***
+
+**Tuples** - jest sekwencja **niezmienna**. Tworzymy ją nawiasami. W okreslonych sytuacjach można pomnąć nawiasy 
+
+```{python}
+tup = (2, 5, 8)
+tup = 5, 5, 6
+tup
+```
+
+Dowolną sekwencję można przekonwertować na obiekt `tuple` lub iterator.
+
+```{python}
+a = range(4)
+type(tuple(a))
+```
+
+```{python}
+b = tuple('string') ; b
+```
+
+Indeksowanie odbywa się za pomocą nawiasó kwadratowy `[]`
+
+```{python}
+print(b[0] , b[3])
+```
+
+**nest tuple** - bardziej skomplikowane krotki - trzeba stosować nawiasy do wydzielenie elemntów zagnieżdzonych.
+
+```{python}
+nest_tup = (3,6,9), (2,4)
+nest_tup
+```
+
+Nie można modyfikować struktury obiektów `tuple`. Natomiast można zmodyfikować obiekty zagnieżdzone, które są modyfikowalne np. `list`.
+
+```{python}
+nest = ('foo', [1,2], True)
+print(f"wydruk obiektu nest = {nest}, \n sprawdzamy jego typ = {type(nest)}")
+```
+
+Spróbujemy zmienić sekwencje `True` na wartość `False` w obiekcie `tuple`  
+
+```{python}
+#| eval: false
+nest[2] = False
+```
+
+Nie zadziałoało ponieważ nie mozna modyfikować obiektu `tuple`. Można za to zmodyfikować wewnętrzny obiekt np. `list`.
+
+```{python}
+nest[1].append(3)
+nest
+```
+
+Obiekty `tuple` można łączyć w celu stworzenia bardziej złożonych obiektów:
+
+```{python}
+new_nest = nest + ("test", [2,4,6], False)
+new_nest
+```
+
+Mnożenie `tuple` przez liczbe całkowitą - jest powielaniem elmentów `tuple`
+
+```{python}
+nest * 3
+```
+
+:::{.callout-tip appearance="simple"}
+Zauważ, że nowy obiekt powstał z odniesień do dwóch istniejacych obiektów.
+:::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

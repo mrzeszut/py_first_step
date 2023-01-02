@@ -1,0 +1,235 @@
+---
+title: "Lesson_1"
+author: " Mateusz Rzeszutek"
+author-meta: "A"
+date: today
+format: 
+  html:
+    code-fold: show
+    code-block-bg: true
+    code-block-border-left: blue
+    code-tools: true
+    number-sections: true
+    number-depth: 6
+    toc: true
+    toc-depth: 3
+    toc-location: right
+    toc-title: Spis Treści
+    embed-resources: true
+    smooth-scroll: true
+    self-contained: true
+    anchor-sections: true
+    theme: 
+        light: flatly
+        dark: solar
+    fontsize: 1.0em
+    linestretch: 1.5
+execute: 
+  echo: true
+  error: false
+  warning: false
+  output: true
+---
+
+<style type="text/css"> body {text-align: justify}  </style>
+
+***
+
+##  Programowanie
+***
+Jest to proces pisania zestawu instrukcji (znanego również kodem), który maszyna może zrozumieć i zmuszania maszyny do ich przestrzegania. 
+
+Celem może być rozwiązanie równania matematycznego, zautomatyzowanie nudnego zadania lub stworzenie strony internetowej, oprogramowania, aplikacji mobilnej lub całej gry.
+
+Programowanie komputerowe wymaga umiejętności technicznych i kreatywnego myślenia. Niektórzy nazywają to nauką, inni sztuką.
+
+Aby mieć pełny obraz tego, czym jest programowanie komputerowe, musimy podkreślić dwa punkty w definicji: „zmusić komputery do wykonywania zadań” i „napisać zestaw instrukcji zrozumiałych dla maszyny” . Porozmawiajmy najpierw o instrukcjach.
+
+## Języki programowania
+***
+
+Pomyśl o komputerze jako o swoim **zagranicznym** przyjacielu, który
+przybył z **przeszłości**. Nie rozumie żadnego języka poza swoim ojczystym. Potrzebuje bardzo prostych i jasnych opisów każdej czynności, które mają zostać wykonane.
+
+Zgodnie z tą logiką nie możesz po prostu powiedzieć swojemu komputerowi, aby „zadzwonił do Dawida z księgowości”. Musisz opisać każde działanie, które obejmuje tą czynność:
+
+1) Odbierz telefon
+2) Naciśnij przycisk, aby włączyć ekran
+3) Przesuń telefon, aby go odblokować
+4) Otwórz Kontakty
+5) Wpisz w wyszukiwarce „Steve z księgowości”.
+6) Otwórz kontakt Steve'a
+7) Naciśnij przycisk połączenia
+
+Komputery nie rozumieją angielskiego ani polskiego, ale rozumieją języki programowania, takie jak C, Python czy Java. 
+
+To trochę uproszczenie, ponieważ komputery tak naprawdę ich nie rozumieją — rozumieją tylko **kod maszynowy**. Programiści używają **kompilatorów** do tłumaczenia **kodu źródłowego** na kod maszynowy.
+
+:::{.callout-caution collapse="true"}
+## Czym jest kod maszynowy ?
+Ciąg cyfr binarnych [0,1]
+:::
+
+Istnieje ponad tysiąc języków programowania. Stare wciąż ewoluują, a nowe wciąż się pojawiają. Poniżej możesz zobaczyć najpopularniejsze języki programowania w nauce danych. 
+
+![Fig. 1. Top programming languages for data scientists](fig_to_qmd/most_popular_lang_data_science.png)
+
+Każdy język komputerowy ma swoje własne cele i zalety. Niektóre języki lepiej nadają się do określonych aplikacji i zadań. Niektóre języki są trudniejsze, inne mniej. Niektóre są proste i popularne, inne są dopracowane i niszowe. Ważną rzeczą do zapamiętania jest to, że języki programowania mają części, konstrukcje i koncepcje, które są wspólne dla wszystkich z nich. Tak więc nauka innego języka komputerowego będzie równie trudna (lub równie łatwa) jak nauka języka obcego.
+
+Szerszy opis: [KDnuggets](https://www.kdnuggets.com/2019/05/poll-top-data-science-machine-learning-platforms.html)
+
+Ranking języków programowania:
+[PYPL](https://pypl.github.io/PYPL.html),
+[TIOBE-index](https://www.tiobe.com/tiobe-index/).
+
+## Jaki język programowania 
+***
+
+Wybierając język, powinieneś zadać sobie pytanie, jaki rodzaj pracy chciałbyś wykonywać. 
+
+* Chcesz zostać twórcą gier? 
+* Czy chcesz tworzyć aplikacje na iPhone'a? 
+* Chcesz robić strony internetowe? 
+* A może potrzebujesz programowania do automatyzacji pracy z danymi naukowymi i statystycznymi?
+
+![Fig. 2. Data science](fig_to_qmd/data_science.webp)
+
+::: {.callout-tip}
+Tak naprawdę chodzi o wybór **rodziny języków programowania**.
+:::
+
+## Paradygmaty
+
+Różne zadania programistyczne można rozwiązać na różne sposoby: może być konieczne napisanie funkcji lub utworzenie oddzielnej klasy z metodami i tak dalej. Wszystkie takie warianty są łączone w różne podejścia programistyczne, które są również nazywane paradygmatami. Poniżej przeanalizujemy dwa główne paradygmaty: imperatywny i deklaratywny oraz ich rodzaje.
+
+![Fig. 3 Paradygmaty](https://ucarecdn.com/024d46aa-b898-4713-b3a7-2c095c94b00e/)
+
+::: callout-tip
+Prawie wszystkie współczesne języki są wieloparadygmatowe.
+:::
+
+::: callout-important
+
+Języki programowania niskiego i wysokiego poziomu
+
+Interpretowane i kompilowane języków programowania 
+:::
+
+## Imperatywny paradygmat 
+***
+ Program rozkazujący jest podobny do poleceń wyrażanych przez tryb rozkazujący w językach naturalnych. Jest to sekwencja instrukcji, które procesor musi wykonać krok po kroku. Głównym celem tego paradygmatu jest sposób osiągnięcia celu. Paradygmat składa się z kilku instrukcji, a po wykonaniu ich wszystkich wynik jest zapisywany.
+
+Na przykład chcesz wyświetlić frazę „Witaj, <nazwa użytkownika>!” na ekranie. Jak program powinien to zrobić? Poprzez następujące kroki:
+
+* zapytaj o nazwę użytkownika
+* przeczytaj i zapamiętaj nazwę użytkownika
+* wyświetlić wynik
+
+Programowanie imperatywne dzieli się na trzy szerokie kategorie: 
+
+* paradygmat programowania **proceduralnego** , 
+* programowanie **obiektowe** 
+* i podejście do **przetwarzania równoległego** . 
+ 
+### Paradygmat programowania proceduralnego 
+***
+Paradygmat programowania proceduralnego opiera się na koncepcji wywołań procedur, w których instrukcje są ustrukturyzowane w procedury zwane również podprogramami lub funkcjami. Są to listy instrukcji, które krok po kroku mówią komputerowi, co ma robić. Innymi słowy, komputer pobiera dane wejściowe i zmienia je sekwencyjnie, pamiętając każdą nową zmianę.
+
+Programowanie proceduralne jest odpowiednie do programowania ogólnego przeznaczenia w celu wykonywania typowych zadań. Może to być więc np. mały problem obliczeniowy. Ponadto kod można ponownie wykorzystać w różnych częściach programu, bez konieczności jego kopiowania.
+
+Algorytm napisany w tym paradygmacie jest bardzo prosty w implementacji, ale jest raczej powolny i nie może rozwiązać złożonego problemu.
+
+Językami programowania, które zaimplementowały paradygmat programowania proceduralnego, są C, Java, C++, ColdFusion i Pascal.
+
+### Paradygmat programowania obiektowego 
+***
+Programowanie zorientowane obiektowo to paradygmat, w którym program jest napisany jako zbiór klas. Każda klasa ma instancje zwane obiektami.
+
+Klasa to ogólny sposób opisywania jednostki, definiujący zwykły stan i zachowanie zależne od tego stanu, a także zwykłe zasady interakcji z tą jednostką. Formalnie klasa jest postrzegana jako zestaw danych, takich jak pola, atrybuty, składowe klasy i funkcje, czyli metody pracy z nimi.
+
+OOP może obsłużyć prawie wszystkie typowe problemy z życia codziennego, w których trzeba modelować typowe obiekty i pracować z nimi.
+
+Języki programowania, które zaimplementowały paradygmat OOP, to Ruby, Java, C++, Python, Simula (pierwszy język OOP), Smalltalk, Visual Basic .NET i Objective-C.
+
+### Podejscie do przetwarzania równoległego 
+***
+Przetwarzanie równoległe pomaga skrócić czas wykonywania instrukcji. Czyni to poprzez udostępnianie lub równoległe wykonywanie instrukcji na wielu procesorach. Znaczenie tego podejścia można streścić w jednym zdaniu: „dziel i zwyciężaj”. 
+
+## Paradygmaty deklaratywne
+***
+**Programowanie deklaratywne** to paradygmat programowania, w którym ważne jest określenie problemu i oczekiwanego wyniku jego rozwiązania. To znaczy, w przeciwieństwie do imperatywnego paradygmatu, w którym należy odpowiedzieć na pytanie **„jak to zrobić?”** musisz zadać pytania **„Co należy zrobić?”** i **„Jaki będzie wynik pracy?”**. 
+
+Zamiast podawać instrukcje krok po kroku, mówisz systemowi, czego potrzebujesz i pozwalasz mu znaleźć rozwiązanie.
+
+```{mermaid}
+%%| echo: false
+%%| fig-cap: Fig. 4. Znaczenie paradygmatów
+%%| fig-align: center
+
+flowchart TD
+    subgraph Deklaratywny
+        B((Powiedz co zrobić ?))
+    end
+    subgraph Imperatywny
+        A((Powiedz jak zrobić ?))
+    end
+    
+    classDef obj fill:#A9CCE3,stroke-width:0px,font-style:italic
+    classDef sub fill:#7FB3D5,stroke:#333,stroke-width:1px,font-weight:bold
+
+    class Imperatywny sub
+    class Deklaratywny sub
+    class A obj
+    class B obj
+```
+
+Programowanie deklaratywne dzieli się na paradygmaty: 
+
+* logiczne, 
+* funkcjonalne, 
+* bazodanowe.
+
+::: callout-tip
+Jak tworzyć diagramy: [quarto-diagrams](https://quarto.org/docs/authoring/diagrams.html), [mermaid](https://mermaid.js.org/).
+:::
+
+### Paradygmat programowania w logice  
+***
+
+*Programowanie logiczne* to paradygmat programowania, który w dużej mierze opiera się na logice formalnej. Każdy program napisany w języku programowania logicznego jest zbiorem zdań w logicznej formie, które wyrażają fakty i reguły dotyczące określonego obszaru problemowego.
+
+Tak więc podstawowe instrukcje programowania logicznego są następujące:
+
+* **Fakty** to fundamentalne twierdzenia dotyczące domeny problemowej, takie jak „Sokrates jest człowiekiem”.
+
+* **Reguły** są wnioskami na temat faktów w domenie („Wszyscy ludzie są śmiertelni”).
+
+* **Zapytania** to pytania dotyczące tej domeny („Czy Sokrates jest śmiertelny?”)
+
+Ogólnie rzecz biorąc, zadaniem tutaj jest znalezienie odpowiedzi na zapytanie w oparciu o fakty i reguły.
+
+Główne rodziny języków programowania logicznego obejmują Prolog, programowanie zestawu odpowiedzi (ASP) i Datalog.
+
+### Paradygmat programowania funkcyjnego 
+***
+
+Programowanie funkcyjne to paradygmat programowania, w którym proces obliczeniowy jest interpretowany jako obliczanie wartości funkcji. Funkcja w tym przypadku jest podobna do funkcji matematycznej. To znaczy funkcja, w której wejściem jest tablica, która nie jest zmieniana, a wyjściem jest nowa tablica z nowymi danymi. To sprawia, że ​​funkcja matematyczna różni się od funkcji w programowaniu proceduralnym, gdzie funkcja jest sekwencją działań zmieniających oryginalne dane.
+
+Oto prosty przykład: możesz mieć funkcję, która pobiera listę liczb jako dane wejściowe i zwraca nową listę z kwadratami tych liczb. Nie zmienia to oryginalnej listy numerów.
+
+Języki programowania, które zaimplementowały paradygmat programowania funkcyjnego, to JavaScript, Haskell, Scala, Erlang, Lisp, ML, Clojure, OCaml i F#.
+
+### Paradygmat programowania baz danych
+***
+Ta metodologia programowania opiera się na pracy z danymi. Dane są przechowywane w bazie danych i zapytania są kierowane do tej bazy danych w specjalnym języku, na przykład SQL. Za pomocą tych języków można uzyskać dostęp do danych w celu filtrowania, przekształcania, obliczania statystyk i tak dalej. Instrukcje programu są definiowane przez dane, a nie zakodowane na stałe serie kroków.
+
+Program bazy danych jest sercem systemu informacji biznesowej, umożliwiając tworzenie plików, wprowadzanie danych, aktualizowanie, wysyłanie zapytań i funkcje raportowania.
+
+### Podsumowanie parydygmatów
+***
+* Różne podejścia do tworzenia programów nazywane są paradygmatami.
+* Istnieją dwa główne paradygmaty programowania: imperatywny i deklaratywny.
+* Imperatywny paradygmat koncentruje się na osiągnięciu wyniku za pomocą instrukcji krok po kroku, które sekwencyjnie zmieniają dane.
+* Paradygmat imperatywny obejmuje paradygmat programowania proceduralnego, programowanie obiektowe i podejście do przetwarzania równoległego.
+* Paradygmat deklaratywny koncentruje się na zadaniu i stara się uzyskać oczekiwany rezultat.
+* Paradygmat deklaratywny obejmuje paradygmaty logiczne, funkcjonalne i bazy danych.

@@ -1,0 +1,29 @@
+# Skróty kalwiaturowe vs code
+
+CTRL + L
+CTRL + P
+CTRL + Spcaja
+
+CTRL + WIN + ALT + N
+CTRL + SHIFT + N
+CTRL + N - new file
+CRLL + O - new folder
+CTRL + W - close file
+
+CTRL + SHIFT + P - commend pallet
+CTRL + SHIFT + E - exploler
+CTR + SHIFT + X - extension
+CTRL + SHIFT + G - 
+
+
+CTRL + D - edycja wielu lini, trzeba klikać wiele razy D w celu zanzaczenia wiekszej ilosci komend.
+
+CTRL + 1 - open window edit
+CTRL + 2
+
+
+CTRL + ` - open terminal
+Ctrl+Shift + 5 Podziel terminal
+Ctrl+Shift + ` Utwórz nowy terminal
+
+Ctrl+Shift+L - podgląd na żywo przy pisaniu równań
