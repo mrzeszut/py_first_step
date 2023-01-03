@@ -33,7 +33,6 @@ execute:
 
 <style type="text/css"> body {text-align: justify}  </style>
 
-
 ## Struktury i sekwencje danych 
 
 

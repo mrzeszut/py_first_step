@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="A">
-<meta name="dcterms.date" content="2023-01-02">
+<meta name="dcterms.date" content="2023-01-03">
 
 <title>Podstawowe struktury danych, funkcje i pliki</title>
 <style>
@@ -2640,7 +2640,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 2, 2023</p>
+      <p class="date">January 3, 2023</p>
     </div>
   </div>
   
@@ -3111,82 +3111,82 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;style</span> <span class="er">type</span><span class="ot">=</span><span class="st">&quot;text/css&quot;</span><span class="kw">&gt;</span> body {<span class="kw">text-align</span>: <span class="dv">justify</span>}  <span class="kw">&lt;/style&gt;</span></span>
 <span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Struktury i sekwencje danych </span></span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## Struktury i sekwencje danych </span></span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tuples - krotki</span></span>
-<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a>***</span>
-<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a>**Tuples** - jest sekwencja **niezmienna**. Tworzymy ją nawiasami. W okreslonych sytuacjach można pomnąć nawiasy </span>
-<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a>tup <span class="op">=</span> (<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">8</span>)</span>
-<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a>tup <span class="op">=</span> <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">6</span></span>
-<span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a>tup</span>
-<span id="cb20-51"><a href="#cb20-51" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-52"><a href="#cb20-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-53"><a href="#cb20-53" aria-hidden="true" tabindex="-1"></a>Dowolną sekwencję można przekonwertować na obiekt <span class="in">`tuple`</span> lub iterator.</span>
-<span id="cb20-54"><a href="#cb20-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-57"><a href="#cb20-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb20-58"><a href="#cb20-58" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="bu">range</span>(<span class="dv">4</span>)</span>
-<span id="cb20-59"><a href="#cb20-59" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(<span class="bu">tuple</span>(a))</span>
-<span id="cb20-60"><a href="#cb20-60" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-61"><a href="#cb20-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-64"><a href="#cb20-64" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb20-65"><a href="#cb20-65" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="bu">tuple</span>(<span class="st">&#39;string&#39;</span>) <span class="op">;</span> b</span>
-<span id="cb20-66"><a href="#cb20-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-67"><a href="#cb20-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-68"><a href="#cb20-68" aria-hidden="true" tabindex="-1"></a>Indeksowanie odbywa się za pomocą nawiasó kwadratowy <span class="in">`[]`</span></span>
-<span id="cb20-69"><a href="#cb20-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-72"><a href="#cb20-72" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb20-73"><a href="#cb20-73" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(b[<span class="dv">0</span>] , b[<span class="dv">3</span>])</span>
-<span id="cb20-74"><a href="#cb20-74" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-75"><a href="#cb20-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-76"><a href="#cb20-76" aria-hidden="true" tabindex="-1"></a>**nest tuple** - bardziej skomplikowane krotki - trzeba stosować nawiasy do wydzielenie elemntów zagnieżdzonych.</span>
-<span id="cb20-77"><a href="#cb20-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-80"><a href="#cb20-80" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb20-81"><a href="#cb20-81" aria-hidden="true" tabindex="-1"></a>nest_tup <span class="op">=</span> (<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">9</span>), (<span class="dv">2</span>,<span class="dv">4</span>)</span>
-<span id="cb20-82"><a href="#cb20-82" aria-hidden="true" tabindex="-1"></a>nest_tup</span>
-<span id="cb20-83"><a href="#cb20-83" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-84"><a href="#cb20-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-85"><a href="#cb20-85" aria-hidden="true" tabindex="-1"></a>Nie można modyfikować struktury obiektów <span class="in">`tuple`</span>. Natomiast można zmodyfikować obiekty zagnieżdzone, które są modyfikowalne np. <span class="in">`list`</span>.</span>
-<span id="cb20-86"><a href="#cb20-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-89"><a href="#cb20-89" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb20-90"><a href="#cb20-90" aria-hidden="true" tabindex="-1"></a>nest <span class="op">=</span> (<span class="st">&#39;foo&#39;</span>, [<span class="dv">1</span>,<span class="dv">2</span>], <span class="va">True</span>)</span>
-<span id="cb20-91"><a href="#cb20-91" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;wydruk obiektu nest = </span><span class="sc">{</span>nest<span class="sc">}</span><span class="ss">, </span><span class="ch">\n</span><span class="ss"> sprawdzamy jego typ = </span><span class="sc">{</span><span class="bu">type</span>(nest)<span class="sc">}</span><span class="ss">&quot;</span>)</span>
-<span id="cb20-92"><a href="#cb20-92" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-93"><a href="#cb20-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-94"><a href="#cb20-94" aria-hidden="true" tabindex="-1"></a>Spróbujemy zmienić sekwencje <span class="in">`True`</span> na wartość <span class="in">`False`</span> w obiekcie <span class="in">`tuple`</span>  </span>
-<span id="cb20-95"><a href="#cb20-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-98"><a href="#cb20-98" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb20-99"><a href="#cb20-99" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb20-100"><a href="#cb20-100" aria-hidden="true" tabindex="-1"></a>nest[<span class="dv">2</span>] <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb20-101"><a href="#cb20-101" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-102"><a href="#cb20-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-103"><a href="#cb20-103" aria-hidden="true" tabindex="-1"></a>Nie zadziałoało ponieważ nie mozna modyfikować obiektu <span class="in">`tuple`</span>. Można za to zmodyfikować wewnętrzny obiekt np. <span class="in">`list`</span>.</span>
-<span id="cb20-104"><a href="#cb20-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-107"><a href="#cb20-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb20-108"><a href="#cb20-108" aria-hidden="true" tabindex="-1"></a>nest[<span class="dv">1</span>].append(<span class="dv">3</span>)</span>
-<span id="cb20-109"><a href="#cb20-109" aria-hidden="true" tabindex="-1"></a>nest</span>
-<span id="cb20-110"><a href="#cb20-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-111"><a href="#cb20-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-112"><a href="#cb20-112" aria-hidden="true" tabindex="-1"></a>Obiekty <span class="in">`tuple`</span> można łączyć w celu stworzenia bardziej złożonych obiektów:</span>
-<span id="cb20-113"><a href="#cb20-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-116"><a href="#cb20-116" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb20-117"><a href="#cb20-117" aria-hidden="true" tabindex="-1"></a>new_nest <span class="op">=</span> nest <span class="op">+</span> (<span class="st">&quot;test&quot;</span>, [<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>], <span class="va">False</span>)</span>
-<span id="cb20-118"><a href="#cb20-118" aria-hidden="true" tabindex="-1"></a>new_nest</span>
-<span id="cb20-119"><a href="#cb20-119" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-120"><a href="#cb20-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-121"><a href="#cb20-121" aria-hidden="true" tabindex="-1"></a>Mnożenie <span class="in">`tuple`</span> przez liczbe całkowitą - jest powielaniem elmentów <span class="in">`tuple`</span></span>
-<span id="cb20-122"><a href="#cb20-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-125"><a href="#cb20-125" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb20-126"><a href="#cb20-126" aria-hidden="true" tabindex="-1"></a>nest <span class="op">*</span> <span class="dv">3</span></span>
-<span id="cb20-127"><a href="#cb20-127" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-128"><a href="#cb20-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-129"><a href="#cb20-129" aria-hidden="true" tabindex="-1"></a>:::{.callout-tip appearance=&quot;simple&quot;}</span>
-<span id="cb20-130"><a href="#cb20-130" aria-hidden="true" tabindex="-1"></a>Zauważ, że nowy obiekt powstał z odniesień do dwóch istniejacych obiektów.</span>
-<span id="cb20-131"><a href="#cb20-131" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tuples - krotki</span></span>
+<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a>***</span>
+<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a>**Tuples** - jest sekwencja **niezmienna**. Tworzymy ją nawiasami. W okreslonych sytuacjach można pomnąć nawiasy </span>
+<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a>tup <span class="op">=</span> (<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">8</span>)</span>
+<span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a>tup <span class="op">=</span> <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">6</span></span>
+<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a>tup</span>
+<span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-51"><a href="#cb20-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-52"><a href="#cb20-52" aria-hidden="true" tabindex="-1"></a>Dowolną sekwencję można przekonwertować na obiekt <span class="in">`tuple`</span> lub iterator.</span>
+<span id="cb20-53"><a href="#cb20-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-56"><a href="#cb20-56" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb20-57"><a href="#cb20-57" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="bu">range</span>(<span class="dv">4</span>)</span>
+<span id="cb20-58"><a href="#cb20-58" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(<span class="bu">tuple</span>(a))</span>
+<span id="cb20-59"><a href="#cb20-59" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-60"><a href="#cb20-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-63"><a href="#cb20-63" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb20-64"><a href="#cb20-64" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="bu">tuple</span>(<span class="st">&#39;string&#39;</span>) <span class="op">;</span> b</span>
+<span id="cb20-65"><a href="#cb20-65" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-66"><a href="#cb20-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-67"><a href="#cb20-67" aria-hidden="true" tabindex="-1"></a>Indeksowanie odbywa się za pomocą nawiasó kwadratowy <span class="in">`[]`</span></span>
+<span id="cb20-68"><a href="#cb20-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-71"><a href="#cb20-71" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb20-72"><a href="#cb20-72" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(b[<span class="dv">0</span>] , b[<span class="dv">3</span>])</span>
+<span id="cb20-73"><a href="#cb20-73" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-74"><a href="#cb20-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-75"><a href="#cb20-75" aria-hidden="true" tabindex="-1"></a>**nest tuple** - bardziej skomplikowane krotki - trzeba stosować nawiasy do wydzielenie elemntów zagnieżdzonych.</span>
+<span id="cb20-76"><a href="#cb20-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-79"><a href="#cb20-79" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb20-80"><a href="#cb20-80" aria-hidden="true" tabindex="-1"></a>nest_tup <span class="op">=</span> (<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">9</span>), (<span class="dv">2</span>,<span class="dv">4</span>)</span>
+<span id="cb20-81"><a href="#cb20-81" aria-hidden="true" tabindex="-1"></a>nest_tup</span>
+<span id="cb20-82"><a href="#cb20-82" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-83"><a href="#cb20-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-84"><a href="#cb20-84" aria-hidden="true" tabindex="-1"></a>Nie można modyfikować struktury obiektów <span class="in">`tuple`</span>. Natomiast można zmodyfikować obiekty zagnieżdzone, które są modyfikowalne np. <span class="in">`list`</span>.</span>
+<span id="cb20-85"><a href="#cb20-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-88"><a href="#cb20-88" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb20-89"><a href="#cb20-89" aria-hidden="true" tabindex="-1"></a>nest <span class="op">=</span> (<span class="st">&#39;foo&#39;</span>, [<span class="dv">1</span>,<span class="dv">2</span>], <span class="va">True</span>)</span>
+<span id="cb20-90"><a href="#cb20-90" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;wydruk obiektu nest = </span><span class="sc">{</span>nest<span class="sc">}</span><span class="ss">, </span><span class="ch">\n</span><span class="ss"> sprawdzamy jego typ = </span><span class="sc">{</span><span class="bu">type</span>(nest)<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb20-91"><a href="#cb20-91" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-92"><a href="#cb20-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-93"><a href="#cb20-93" aria-hidden="true" tabindex="-1"></a>Spróbujemy zmienić sekwencje <span class="in">`True`</span> na wartość <span class="in">`False`</span> w obiekcie <span class="in">`tuple`</span>  </span>
+<span id="cb20-94"><a href="#cb20-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-97"><a href="#cb20-97" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb20-98"><a href="#cb20-98" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb20-99"><a href="#cb20-99" aria-hidden="true" tabindex="-1"></a>nest[<span class="dv">2</span>] <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb20-100"><a href="#cb20-100" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-101"><a href="#cb20-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-102"><a href="#cb20-102" aria-hidden="true" tabindex="-1"></a>Nie zadziałoało ponieważ nie mozna modyfikować obiektu <span class="in">`tuple`</span>. Można za to zmodyfikować wewnętrzny obiekt np. <span class="in">`list`</span>.</span>
+<span id="cb20-103"><a href="#cb20-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-106"><a href="#cb20-106" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb20-107"><a href="#cb20-107" aria-hidden="true" tabindex="-1"></a>nest[<span class="dv">1</span>].append(<span class="dv">3</span>)</span>
+<span id="cb20-108"><a href="#cb20-108" aria-hidden="true" tabindex="-1"></a>nest</span>
+<span id="cb20-109"><a href="#cb20-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-110"><a href="#cb20-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-111"><a href="#cb20-111" aria-hidden="true" tabindex="-1"></a>Obiekty <span class="in">`tuple`</span> można łączyć w celu stworzenia bardziej złożonych obiektów:</span>
+<span id="cb20-112"><a href="#cb20-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-115"><a href="#cb20-115" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb20-116"><a href="#cb20-116" aria-hidden="true" tabindex="-1"></a>new_nest <span class="op">=</span> nest <span class="op">+</span> (<span class="st">&quot;test&quot;</span>, [<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>], <span class="va">False</span>)</span>
+<span id="cb20-117"><a href="#cb20-117" aria-hidden="true" tabindex="-1"></a>new_nest</span>
+<span id="cb20-118"><a href="#cb20-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-119"><a href="#cb20-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-120"><a href="#cb20-120" aria-hidden="true" tabindex="-1"></a>Mnożenie <span class="in">`tuple`</span> przez liczbe całkowitą - jest powielaniem elmentów <span class="in">`tuple`</span></span>
+<span id="cb20-121"><a href="#cb20-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-124"><a href="#cb20-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb20-125"><a href="#cb20-125" aria-hidden="true" tabindex="-1"></a>nest <span class="op">*</span> <span class="dv">3</span></span>
+<span id="cb20-126"><a href="#cb20-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-127"><a href="#cb20-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-128"><a href="#cb20-128" aria-hidden="true" tabindex="-1"></a>:::{.callout-tip appearance=&quot;simple&quot;}</span>
+<span id="cb20-129"><a href="#cb20-129" aria-hidden="true" tabindex="-1"></a>Zauważ, że nowy obiekt powstał z odniesień do dwóch istniejacych obiektów.</span>
+<span id="cb20-130"><a href="#cb20-130" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-131"><a href="#cb20-131" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-132"><a href="#cb20-132" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-133"><a href="#cb20-133" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-134"><a href="#cb20-134" aria-hidden="true" tabindex="-1"></a></span>
@@ -3204,7 +3204,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb20-146"><a href="#cb20-146" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-147"><a href="#cb20-147" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-148"><a href="#cb20-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-149"><a href="#cb20-149" aria-hidden="true" tabindex="-1"></a></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

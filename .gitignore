@@ -1,2 +1,3 @@
 /py_first_step.code-workspace
-/py_firs_steps.html
+/*.html
+__pycache__/
