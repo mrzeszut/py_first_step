@@ -1,3 +1,4 @@
 /py_first_step.code-workspace
 /*.html
 __pycache__/
+/*.json
