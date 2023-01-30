@@ -1,0 +1,760 @@
+---
+title: "Podstawy składni"
+author: " Mateusz Rzeszutek"
+author-meta: "A"
+date: today
+format: 
+  html:
+    code-fold: show
+    code-block-bg: true 
+    code-block-border-left: blue
+    code-tools: true
+    number-sections: true
+    number-depth: 6
+    toc: true
+    toc-depth: 3
+    toc-location: right
+    toc-title: Spis Treści
+    embed-resources: true
+    smooth-scroll: true
+    self-contained: true
+    anchor-sections: true
+    theme: 
+        light: flatly
+        dark: solar
+    fontsize: 1.0em
+    linestretch: 1.5
+execute: 
+  echo: true
+  error: false
+  warning: false
+  output: true
+---
+
+<style type="text/css"> body {text-align: justify}  </style>
+
+
+## System pomocy python
+***
+Poniższe polecenie uruchamia system pomocy w oknie interaktywnym. 
+
+```{python}
+help('print')
+```
+
+Jeśli chcesz skorzystać z systemu pomocy w przegladrace internetowej to można skorzystać z `pydoc-b`. wpisz to polecenie terminalu, a uruchomi się przeglądarka z systemem pomocy. Dalej każdy sobie poradzi. 
+
+## Zmienne i przekazywanie argumentów
+***
+Stworzymy takie same zmienne `a` i `b`.
+
+```{python}
+a = [1,2,3]
+b = a
+```
+
+```{python}
+#| echo: false
+print(a) ; print(b)
+```
+
+W niektórych językach przypisanie listy `a = [1, 2, 3]` do `b` spowoduje  skopowanie danych. W Pythonie `a` i `b` odnoszą się do tego samego obiektu, oryginalnej listy [1, 2, 3]. Patrz rys. 3.1. 
+
+![fig. 3.1. przypisanie zmiennych](zmienne_przekazywanie.png)
+
+Możesz to sobie udowodnić, dołączając element do obiektu `a` następnie sprawdzając `b`:
+
+```{python}
+a.append(4)
+b
+```
+
+Zrozumienie semantyki odwołań w Pythonie oraz tego, kiedy, jak i dlaczego dane są kopiowane, jest szczególnie ważne podczas pracy z większymi zbiorami danych w Pythonie.
+
+***
+
+Kiedy przekazujesz obiekty jako argumenty do funkcji, tworzone są nowe zmienne lokalne odwołujące się do oryginalnych obiektów **bez kopiowania**. Jeśli powiążesz nowy obiekt ze zmienną wewnątrz funkcji, nie spowoduje to nadpisania zmiennej o tej samej nazwie w „zakresie” poza funkcją („zakres nadrzędny”). Dlatego możliwa jest zmiana elementów wewnętrznych zmiennego argumentu. Załóżmy, że mamy następującą funkcję:
+
+```{python}
+def append_element(s_list, element):
+    s_list.append(element)
+```
+
+Teraz:
+
+```{python}
+data = [1,2,3]
+append_element(data, 4)
+data
+```
+
+## Import
+***
+Moduł to poprostu plik **.py**, który zawiera kod źródłowy pythona. Stwórzmy plik **some_module.py**. Zapisz go w obszarze roboczym. 
+
+::: {.callout appearance="minimal"}
+    # some_module.py
+    PI = 3.14159
+
+    def f(x):
+        return x + 2
+
+    def g(a, b):
+        return a + b
+:::
+
+Teraz wykonamy import modułu. Pozwala nam on odwoływać się do funkcji i obiektów utworzonych w pliku **some_module.py**.
+
+```{python}
+#| output: false
+import some_module
+some_module.f(5)
+some_module.g(4, 6)
+some_module.PI
+```
+
+Alternatywnie można wczytać wybrane elmenty:
+
+```{python}
+#| output: false
+from some_module import f, g, PI
+f(5) 
+g(5,PI)
+```
+
+Zastosowanie `as` do importu modułu:
+
+```{python}
+import some_module as sm
+sm.g(5, sm.PI)
+```
+
+Można importować tylko wybrane elementy oraz zmieniać im aliasy. 
+
+```{python}
+from some_module import PI as pi, g as gf
+gf(6, pi)
+```
+
+## Operatory binarne i porównania 
+***
+Operatory arytmetyczne:
+
+```{python}
+a = 2
+b = 4.5
+```
+
+```{python}
+#| output: false
+a + b
+b - a
+a * b
+b / a
+b // a
+a ** 4
+```
+
+Operatory logiczne:
+
+```{python}
+#| output: false
+#| eval: false
+
+a & b # True jesli a i b True 
+a | b # True jesli a lub b True
+a ^ b # True jesli a lub b True, ale False gdy oba True 
+
+a == b
+a != b
+
+a < b
+a > b
+
+a <= b
+a >= b
+```
+
+Innel logiczne:
+
+```{python}
+#| output: false
+#| eval: false
+
+a is b     # True - ten sam obiekt
+a is not b # True - jesli rożne oboekty
+```
+
+Przykład:
+
+```{python}
+a = [1, 2, 3]
+b = a
+c = list(a)
+```
+
+```{python}
+a is b # odwołuje się do tego samego obiektu
+```
+
+```{python}
+a is c # odwołuje się do różnych obiektów
+```
+
+Funkcja `list` zawsze tworzy nowy obiekt. Więc `c` jest różne od `a`. Natomiast `==` to nie jest to samo co `is`.
+
+```{python}
+a == c
+```
+
+Typowe zastosowanie `is` i `is not` jest sprawdzenie, czy zmienna jest `None`, ponieważ istnieje tylko jedno wystąpienie `None`:
+
+```{python}
+a = None
+a is None
+```
+
+## Obiekty zmienne i niezmienne
+***
+Zdecydowana większość obiektów i klas w `py` jest modyfikowalna (*mutable*). 
+
+```{python}
+a_list = ["foo", 2, [4, 5]]
+a_list[2] = [1,2]
+a_list
+```
+
+Inne obiekty, takie jak `string` (znaki), `tuples` (krotki, `datetime` (Data godzina) są niezmienne. Uruchom poniższy kod. Sprawdź uzyskane komunikaty.
+
+```{python}
+#| eval: false
+a_tuple = (3, 5, (4, 6))
+a_tuple[2] = 4
+```
+
+::: {.callout-tip collapse="true"}
+Modyfikowanie obiektów jest z reguły działaniem nieporządanym. Pisząc funkcje zaznacz wszelkie modyfikacje w dokumentacji. Zalecanym jest unikanie modyfikacji obiektów. 
+:::
+
+## Obiekty skalarne (scalar)
+***
+Typy zmiennych skalaranych 
+
+1) `int` - całkowita
+2) `float` - zmiennorzecinkowa podwójnej precyzji
+3) `str` - znakowy
+4) `bool` - logiczny
+5) `None` - pusta `null` - istnieje tylko jedno wystąpienie
+6) `bytes` - surowe dane binarne
+
+### Liczby 
+***
+**typ liczbowy** to `int` i `float`.  `int` przechowuje dowolne duże wartości. 
+
+```{python}
+val = 123234
+val ** 6 
+```
+
+Liczby zmiennoprzecinkowe są zawsze podwójnej precyzji i można je wyrazić w postaci notacji naukowej.
+
+Dzielenie liczb calkowity zwraca zmiennoprzecinkowe. Chyba ze zastosujemy operator `//`
+
+```{python}
+a = 3/2
+type(a)
+```
+
+```{python}
+type(3//2)
+```
+
+### Znaki
+
+**typ znakowy** - zawsze cudysłów, pojedyńczy lub prefrowany podwójny:
+
+```{python}
+a = 'pierwsz droga pisania znaków unicode'
+b = "inna droga"
+```
+
+Można pisać wiele wierszy sstosująć cudysłow potrójny `"""` :
+
+```{python}
+c = """
+To jest długi ciąg znaków
+składa się z kilku lini
+"""
+print(c)
+```
+
+Ten ciąg znaków `c` faktycznie zawiera cztery wiersze tekstu. Łatwo policzyć liczbę znaków za pomocą funkcji `count` metodą `c`:
+
+```{python}
+c.count("\n")
+```
+
+::: callout-warning
+Obiekty skłądające się z znaków **nie są modyfikowalne**. 
+:::
+
+Jeśli chcemy zmodyfikować ciąg znaków musimy użyć funkcji lub metody, która tworzy nowy ciąg. 
+
+```{python}
+b = a.replace("znaków", "więcej znaków")
+b
+```
+
+Obiekt `a` nie został zmodyfikowany:
+
+```{python}
+a
+```
+
+Konwersja na tryb znakowy funkcja `str`:
+
+```{python}
+a = 5.6
+type(a)
+```
+
+```{python}
+a = str(a)
+type(a)
+```
+
+`Strings` są sekwencją znaków unicode, więc mogą byc traktowane jak sekwencja.
+
+
+```{python}
+s = "python"
+list(s)
+```
+
+```{python}
+s[:3]
+```
+
+Powyższa składnia to `slicing` - póżniej ją omówimy, ważne jest to że jest bardzo często stosowana.
+
+::: callout-important
+znak `\` jest tzw. znakiem ucieczki. Jest używany do tworzenia znaków specjalnych np: polecenie nowej lini to `\n`. W celu utworzenia symbolu `\` nalezyw kodzie napisać `\\`. Jest to irytujące. Wiec często stosuje się zapis `r` przed trybem znakowym. `r` - interpretuj znaki takie jakie są. 
+:::
+
+```{python}
+s = r"to\je\sciezka\dostepu" ; s
+```
+
+Operator dodawanie łączy sekwencje znaków.
+
+```{python}
+a = "pierwszy"
+b = "drugi"
+a + b
+```
+
+Metoda `format` dla obiektów znakowych. Pozwala tworzyć nowy sformatowyany ciąg.
+
+```{python}
+template = "{0:.2f} {1:s} to około {2:d} $"
+```
+
+* `{0:.2f}` - pierwszy element - liczba zmiennoprzecinkowa, dokałdność 2 miejsca
+* `{1:s}` - drugi elemnt - string
+* `2:d` - trzeci element - liczba całkowita 
+
+```{python}
+template.format(4.50, "zł", 1)
+```
+
+Ciekawsza funkcja formatowania to `f`.
+
+```{python}
+cena_pl = 100
+rate = 4.50
+jednostka = "zł"
+f"{cena_pl} {jednostka} to {cena_pl / rate} $"
+```
+
+Istnieje wiele metod znaków [pydocs - string](https://docs.python.org/3/library/string.html) 
+
+Import liter alfabeu.
+
+```{python}
+import string
+sl = string.ascii_lowercase
+su = string.ascii_uppercase
+```
+
+Zmiana wielkicj i małych liter:
+
+```{python}
+sl.upper() # metoda ?
+su.lower() # metoda ?
+len(sl) # funkcja ?
+sl.count("a")
+```
+
+### Bajty i Unicode
+***
+
+W python 3.0 wrpwadzono pierwszorzędny typ znkaów `Unicode`.
+
+```{python}
+val = "español"
+val
+```
+
+Metoda konwersjii na Ubicode na UTF-F `encode` W starszych wersjach Pythona ciągi były bajtami bez jawnego kodowania Unicode. Możesz przekonwertować na Unicode, zakładając, że znasz kodowanie znaków. Oto przykładowy ciąg znaków Unicode ze znakami spoza zestawu ASCII:
+
+```{python}
+val_utf = val.encode("utf-8")
+val_utf
+```
+
+```{python}
+type(val_utf)
+```
+
+W drógą stronę to `decode`
+
+```{python}
+val_utf.decode("utf-8")
+```
+
+### Logiczny
+***
+
+Łączenie wyrażeń logicznych 
+
+```{python}
+#| output: false
+True and False
+True or False
+```
+
+Po przekształceniu Zero to `False`, a jeden to `True`
+
+```{python}
+#| output: false 
+bool(1) # True
+bool(0) # False
+int(True) # 1
+int(False) # 0
+```
+
+Oprócz `and`, `or` i `is` mamy słowo kluczowe `not` - czyli negacja.
+
+```{python}
+not False
+```
+
+```{python}
+not True
+```
+
+::: callout-tip
+Sprawdź słowo kluczowe `not` z liczbami typu integer
+:::
+
+###  Type casting
+***
+Typy `bool`, `str`, `int`, `float` to także funkcje, którymi można rzutować wartości. 
+
+```{python}
+#| output: false
+pi = "3.1459"
+int(float(pi))
+float(pi)
+```
+
+### None
+***
+`None` to typ wartości `null` (puste)
+
+```{python}
+a = None
+a is None
+```
+
+```{python}
+b = 5
+b is not None
+```
+
+### None w funkcji
+***
+`None` jest powszechnie stosowane jako wartość domyślna funkcji. 
+
+
+```{python}
+def add_ab_mayby_times(a, b, c = None):
+    result = a + b
+
+    if c is not None:
+        result = result * c
+   
+    return result
+```
+
+::: callout-tip
+Sprawdź czy funkcja działa 
+:::
+
+### Data i godzina
+***
+Korzystanie z daty wymaga inportu modyłu `datetime`. Udostępnia on 3 typy obiektów:
+
+* `date`
+* `time`
+* `datetime`
+
+```{python}
+#| output: false
+from datetime import datetime, date, time
+
+dt = datetime(2011, 10, 11, 20, 23, 33)
+dt.year    
+dt.month
+dt.day
+dt.minute
+dt.second
+```
+
+Można wyizolować człony `date` i `time`
+
+```{python}
+#| output: false
+dt.date()
+dt.time()
+```
+
+Metoda `strftime` formatuje date na typ znakowy:
+
+```{python}
+dt2 = dt.strftime(format = "%Y-%m-%d %H:%M")
+dt2
+```
+
+Konwersja znaków na datetime:
+
+```{python}
+dt3 = datetime.strptime("20091129", "%Y%m%d")
+dt3
+```
+
+W przypadku agregowania szeregów czasowych przydatne może być zastąpienie pozycji `minute` i `second` zerami. 
+
+
+```{python}
+dt_hour = dt.replace(minute = 0, second = 0)
+dt_hour
+```
+
+Zauważ, że utworzony obiekt `dt` typu `datetime` jest **niemodyfikowlany**. W efekcie należy zawsze utworzyć nowy obiekt przechowujący zmodyfikowaną wartość `dt`. 
+
+```{python}
+dt
+```
+
+Róznica obiektów `datetime` tworzy obiekt obiekt typu `timedelta`. A dodanie `datetime` do `timedelta` tworzy przesuniecie typu `datetime`
+
+```{python}
+delta = datetime(2011, 10, 5) - dt
+delta
+```
+
+```{python}
+delta + dt
+```
+
+## Kontrola przepływu 
+***
+
+### Instrukcje warunkowe 
+***
+
+Instrukcja `if` jest podstaowym typem instrukcji przepływu pracy. 
+
+```{python}
+x = -5
+if x < 0:
+    print('x jest mniejsze od zera')
+```
+
+Wiele warunków. Zauważ, że za kazdym razem po instrukcji `if`, `ifel`, `else` stosujemy `:`. A po dwukropku stosujemy 4 spacje. Można użyć kalwisza `TAB`, który wprowadzi 4 spacje. 
+
+```{python}
+#| output: false
+if x < 0:
+    print("x jest mniejsze od zera")
+elif x == 0:
+    print('x równe zero')
+elif 0 < x < 5:
+    print('dodatnie, ale mniejsze od 5')
+else:
+    print('Dodatnie i większe do 5')
+```
+
+::: callout-tip
+Sprawdź działanie funkcji. Zastosuj zero typu `int` oraz `float`
+:::
+
+::: callout-important
+Jeśli ktoryś z warunków zostanie osiągnięty następne nie są sprawdzene. Warunki są oceniane od lewej do prawej - jeśli stosujemy wiele warunków. Patrz przykłąd poniżej.
+:::
+
+```{python}
+a = 5 ; b = 7 
+c = 8 ;  d = 4
+
+if a < b or c > d:
+    print("Made it")
+```
+
+Jeśli warunke pierwszy `a < b` jest spełniony, to warunke `c > d` nie jest sprawdzany ponieważ zastosowano słowo kluczowe `or`.
+
+Inny typ porównania to łańcuch:
+
+```{python}
+4 > 3 == 3 > 1
+```
+
+Wystarczy, że jeden z elemntów nie będzie spełaniał warunku to otrzymamy wartość `False`.  
+
+### Pętla for
+***
+Pętle służą do wykonywania iteracji po kolekcji (takiej jak `list` i `tuple`). Standardowa składnia pętli to: 
+
+```{python}
+#| eval: false
+for value in colection:
+    # zestaw instrukcji
+```
+
+Przykład prostej pętli z funkcja pomijania pozostałcyh elementów bloku `continue`. Funkcja ta zabezpiecza naszą pętlę przed błędem w przypadku wystąpienia elemntu pustego `None`.
+
+```{python}
+sekwencja = [1, 2, None, 4, None, 5] # kolekcja [collection]
+total = 0  # wyjście [output]
+for i in sekwencja:
+    if i is None:
+        continue
+    total += i
+print(total)
+```
+
+Słowo kluczowe `break` zamyka wewnętrzną pętlę. Pozostała działą do zakończenia kolekcji. W tym przypadku pętla węwnętrza wykonywała dokąłdnie tyle samo operacji co zewnętrza, bo słowo kluczowe `break` zatrzymywało pętle. 
+
+```{python}
+sequence = [1, 2, 0, 4, 6, 5, 2, 1]
+total_5 = 0
+
+for value in sequence:
+    if value == 5:
+        break
+    total_5 += value
+    print("total =  ", total_5, "value = ", value)
+```
+
+
+```{python}
+for i in range(0,4):
+    for j in range(0,4):
+        if j > i:
+            break
+    print(i, j)
+```
+
+::: callout-tip
+Wykonaj powyższy kod bez lini:
+        if i > j:
+            break
+Pamietaj o semantyce kodu po operatorze `:`. 
+:::
+
+::: callout-important
+Jesli sekwencje są kolekcją np. `list` lub `tuple`, to można je łatwo wypakować za pomocą pętli `for`.
+:::
+
+````
+for a, b, c in iterator:
+    # jakaś instrukcja
+````
+
+### Pętla while 
+***
+
+Pętla zostaje zakończona, gdy warunek zwróci wartość `false` lub zostanie zamknięta słowem kluczowym `break` 
+
+```{python}
+x = 256
+total = 0
+
+while x > 0:
+    if total > 500:
+        break
+    total += x
+    x = x // 2
+
+total
+```
+
+### przejdź [pass]
+***
+
+instrukcja `pass` mówi *nic nie rób*. Stosowana, gdy chcemy wyeliminować jakis blok kodu. Ewentualnie gdy nie mamy jeszcze pomysłu co w tym bloku ma się znaleźć. 
+
+```{python}
+x = 0
+if x < 0:
+    print("mniej niż zero")
+elif x == 0:
+    # TODO: wstaw tu coś sprytnego
+    pass
+else:
+    print("wyniki pozytywny") 
+```
+
+### Zakres [range]
+
+Funkcja `range()` tworzy sekwencje liczb całkowitych.
+
+```{python}
+range(1,10)
+```
+
+```{python}
+list(range(0,10))
+```
+
+Krok sekwencji:
+
+```{python}
+list(range(0,20, 2))
+```
+
+Może być ujemny krok sekwencji
+
+```{python}
+list(range(10,-10, -2))
+```
+
+Typowym zastosowaniem `range()` jest iteracja po sekwencji
+
+```{python}
+seq = [1,2,3,4]
+
+for i in range(len(seq)):
+    print(f"element {i} vlaue of seq {seq[i]}")
+```
+
+Przykład zastosowania `range`.
+
+```{python}
+total = 0
+for i in range(20):
+    if i % 3 == 0 or i % 5 == 0:
+        total += i
+        print(f"total = {total} i = {i}")
+```
